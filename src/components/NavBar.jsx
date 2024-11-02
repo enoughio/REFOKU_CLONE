@@ -13,7 +13,7 @@ const NavBar = () => {
           {["Home", "Work", "Culture", "", "news"].map((elem, i) => {
             return (
               <>
-                <div className="flex items-center gap-2">
+                <div key={i} className="flex items-center gap-2">
                   {elem.length === 0 ? (
                     <span className="w-[1px] h-5 bg-zinc-400"></span>
                   ) : (
