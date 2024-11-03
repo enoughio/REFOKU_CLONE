@@ -12,8 +12,8 @@ const NavBar = () => {
         <div className="links mx-16 flex items-center gap-10">
           {["Home", "Work", "Culture", "", "news"].map((elem, i) => {
             return (
-              <>
-                <div key={i} className="flex items-center gap-2">
+              < div key={i} >
+                <div  className="flex items-center gap-2">
                   {elem.length === 0 ? (
                     <span className="w-[1px] h-5 bg-zinc-400"></span>
                   ) : (
@@ -28,7 +28,7 @@ const NavBar = () => {
                   )}
                   <a href="#">{elem}</a>
                 </div>
-              </>
+              </div>
             );
           })}
         </div>

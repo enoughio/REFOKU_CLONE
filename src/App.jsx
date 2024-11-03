@@ -6,6 +6,9 @@ import Products from "./components/products";
 import Marquees from "./components/Marquees";
 import Cards from "./components/Cards";
 import Footer from "./components/Fotter";
+import LocomotiveScroll from 'locomotive-scroll';
+
+const locomotiveScroll = new LocomotiveScroll();
 
 const App = () => {
   return (
