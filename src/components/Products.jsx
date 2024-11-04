@@ -1,5 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "./product";
+import { motion } from "framer-motion";
+import arqitel from "../assets/arqitel.mp4";
+import ttr from "../assets/ttr.mp4";
+import yir from "../assets/yir.mp4";
+import yahoo from "../assets/yahoo.mp4";
+import rainfall from "../assets/rainfall.mp4";
 
 const Products = () => {
   var products = [
@@ -40,11 +46,102 @@ const Products = () => {
     },
   ];
 
+  const [pos, setPos] = useState(0);
+  const HandelPos = (val) => {
+    setPos(val * 22);
+  };
+
   return (
-    <div className="mt-[6vw]">
+    <div className="mt-[6vw] relative">
       {products.map((Prod, index) => {
-        return <Product item={Prod} key={index} />;
+        return (
+          <Product
+            item={Prod}
+            HandelPos={HandelPos}
+            count={index}
+            key={index}
+          />
+        );
       })}
+      <div className="absolute top-0 w-full h-full pointer-events-none ">
+        <motion.div
+          animate={{ y: pos + `rem` }}
+          initial={{ y: pos }}
+          transition={{ ease: [0.65, 0, 0.35, 1], duration: 0.5 }}
+          className={`  widnow w-[35%] h-[22rem]  absolute left-[24%] overflow-hidden rounded-md `}
+        >
+          <motion.div
+            animate={{ y: -pos + "rem" }}
+            transition={{ ease: [0.65, 0, 0.35, 1], duration: 0.5 }}
+            className="rounded-md overflow-hidden w-full h-full "
+          >
+            {" "}
+            <video
+              src={arqitel}
+              className="object-cover overflow-hidden w-full h-full "
+              muted
+              loop
+              autoPlay
+            ></video>
+          </motion.div>
+          <motion.div
+            animate={{ y: -pos + "rem" }}
+            transition={{ ease: [0.65, 0, 0.35, 1], duration: 0.5 }}
+            className="rounded-md overflow-hidden w-full h-full"
+          >
+            {" "}
+            <video
+              src={ttr}
+              className="object-cover overflow-hidden w-full h-full"
+              muted
+              loop
+              autoPlay
+            ></video>
+          </motion.div>
+          <motion.div
+            animate={{ y: -pos + "rem" }}
+            transition={{ ease: [0.65, 0, 0.35, 1], duration: 0.5 }}
+            className="rounded-md overflow-hidden w-full h-full"
+          >
+            {" "}
+            <video
+              src={yir}
+              className="object-cover overflow-hidden w-full h-full"
+              muted
+              loop
+              autoPlay
+            ></video>
+          </motion.div>
+          <motion.div
+            animate={{ y: -pos + "rem" }}
+            transition={{ ease: [0.65, 0, 0.35, 1], duration: 0.5 }}
+            className="rounded-md overflow-hidden w-full h-full"
+          >
+            {" "}
+            <video
+              src={yahoo}
+              className="object-cover overflow-hidden w-full h-full"
+              muted
+              loop
+              autoPlay
+            ></video>
+          </motion.div>
+          <motion.div
+            animate={{ y: -pos + "rem" }}
+            transition={{ ease: [0.65, 0, 0.35, 1], duration: 0.5 }}
+            className="rounded-md overflow-hidden w-full h-full"
+          >
+            {" "}
+            <video
+              src={rainfall}
+              className="object-cover overflow-hidden w-full h-full"
+              muted
+              loop
+              autoPlay
+            ></video>
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
